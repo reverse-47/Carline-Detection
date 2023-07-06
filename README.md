@@ -8,3 +8,43 @@
 原作者的GANet模型：
 
 ![image](https://github.com/reverse-47/Carline-Detection/assets/85037574/e52fef24-25ab-4d71-b956-8243923fd325)
+
+我们基于以上的模型进行了如下步骤：
+
+1.修改模型中的LFA中的可变形卷积层，使其可以适用于CPU环境
+
+2.修改测试文件中的与gpu相关的参数，改为cpu
+
+3.替换输入与输出方式，移植至开发板
+
+# 移植步骤
+我们选择的是华为晟腾的Atlas 200 Developer Kit 开发板，搭载树莓派V2.1相机。
+
+1.参照Atlas 200DK官方文档对开发板进行操作系统烧录
+
+2.配置OS依赖及python环境
+
+3.移植代码
+
+4.参照CANN中调用相机步骤，替换原测试文件中的图片读取输入为相机拍摄输入
+
+5.通过Websocket将推理生成的图片展示至网页页面，实时传输，实时读取
+
+# 快速上手
+快速运行本项目（开发板端），请按照以下步骤执行：
+
+1.按照移植步骤中的1、2配置好Atlas 200DK的项目运行环境
+
+2.配置项目的python依赖
+
+pip install pytorch==1.6.0 torchvision==0.7.0 -c pytorch -y
+pip install -r requirements/build.txt
+
+2.运行如下代码：
+
+git clone https://github.com/reverse-47/Carline-Detection.git
+cd Code/GANet
+python setup.py
+cd tools
+python ganet/culane/test_dataset.py ../configs/culane/final_exp_res18_s8.py [模型文件]
+
