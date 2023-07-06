@@ -17,7 +17,7 @@
 
 3.替换输入与输出方式，移植至开发板
 
-# 移植步骤
+## 移植步骤
 我们选择的是华为晟腾的Atlas 200 Developer Kit 开发板，搭载树莓派V2.1相机。
 
 1.参照Atlas 200DK官方文档对开发板进行操作系统烧录
@@ -30,17 +30,17 @@
 
 5.通过Websocket将推理生成的图片展示至网页页面，实时传输，实时读取
 
-# 快速上手
+## 快速上手
 快速运行本项目（开发板端），请按照以下步骤执行：
 
 1.按照移植步骤中的1、2配置好Atlas 200DK的项目运行环境
 
 2.配置项目的python依赖
-
+```shell
 pip install pytorch==1.6.0 torchvision==0.7.0 -c pytorch -y
 
 pip install -r requirements/build.txt
-
+```
 2.运行如下代码：
 
 git clone https://github.com/reverse-47/Carline-Detection.git
@@ -53,7 +53,7 @@ cd tools
 
 python ganet/culane/test_dataset.py ../configs/culane/final_exp_res18_s8.py [模型文件]
 
-# 运行效果
+## 运行效果
 
 ![image](https://github.com/reverse-47/Carline-Detection/assets/85037574/31ac6893-be13-4f06-9603-4bf01083a02b)
 
