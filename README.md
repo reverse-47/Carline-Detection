@@ -38,21 +38,16 @@
 2.配置项目的python依赖
 ```shell
 pip install pytorch==1.6.0 torchvision==0.7.0 -c pytorch -y
-
 pip install -r requirements/build.txt
 ```
 2.运行如下代码：
-
+```shell
 git clone https://github.com/reverse-47/Carline-Detection.git
-
 cd Code/GANet
-
 python setup.py
-
 cd tools
-
 python ganet/culane/test_dataset.py ../configs/culane/final_exp_res18_s8.py [模型文件]
-
+```
 ## 运行效果
 
 ![image](https://github.com/reverse-47/Carline-Detection/assets/85037574/31ac6893-be13-4f06-9603-4bf01083a02b)
